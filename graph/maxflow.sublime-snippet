@@ -25,15 +25,15 @@ struct MaxFlow {
     G[to].push_back(Edge(to, from, 0, 0, G[from].size() - 1));
   }
 
-  void Enqueue(int v) { 
-    if(!active[v] && excess[v] > 0) { active[v] = true; Q.push(v); } 
+  void Enqueue(int v) {
+    if(!active[v] && excess[v] > 0) { active[v] = true; Q.push(v); }
   }
   void Push(Edge &e) {
     int amt = int(min(excess[e.from], LL(e.cap - e.flow)));
     if(dist[e.from] <= dist[e.to] || amt == 0) return;
     e.flow += amt;
     G[e.to][e.index].flow -= amt;
-    excess[e.to] += amt;    
+    excess[e.to] += amt;
     excess[e.from] -= amt;
     Enqueue(e.to);
   }
@@ -49,7 +49,7 @@ struct MaxFlow {
   void Relabel(int v) {
     count[dist[v]]--;
     dist[v] = 2*n;
-    for(int i = 0; i < G[v].size(); i++) 
+    for(int i = 0; i < G[v].size(); i++)
       if(G[v][i].cap - G[v][i].flow > 0)
         dist[v] = min(dist[v], dist[G[v][i].to] + 1);
     count[dist[v]]++;
@@ -58,7 +58,7 @@ struct MaxFlow {
   void Discharge(int v) {
     for(int i = 0; excess[v] > 0 && i < G[v].size(); i++) Push(G[v][i]);
     if(excess[v] > 0) {
-      if (count[dist[v]] == 1) Gap(dist[v]); 
+      if (count[dist[v]] == 1) Gap(dist[v]);
       else Relabel(v);
     }
   }
@@ -85,6 +85,6 @@ struct MaxFlow {
 };
 
 ]]></content>
-	<tabTrigger>maxflow</tabTrigger>
+	<tabTrigger>_maxflow</tabTrigger>
 	<scope>source.c++</scope>
 </snippet>

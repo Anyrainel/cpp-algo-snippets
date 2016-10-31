@@ -31,7 +31,7 @@ struct MaxWeightMatch {
     }
     return false;
   }
-  
+
   int maxMatch() {
     for(int i = 0; i < n; ++i)
       for(int j = 0; j < m; ++j)
@@ -61,6 +61,6 @@ struct MaxWeightMatch {
 };
 ${2}
 ]]></content>
-	<tabTrigger>weightmatch</tabTrigger>
+	<tabTrigger>_weightmatch</tabTrigger>
 	<scope>source.c++</scope>
 </snippet>

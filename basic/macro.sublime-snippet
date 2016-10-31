@@ -9,7 +9,8 @@
 #define minify(m, x) {if((m) > (x)) m = (x);}
 #define fixprec(d) {cout<<fixed<<setprecision(d);}
 #define setfw(f,w) {cout<<setfill(f)<<setw(w);}
+
 ]]></content>
-	<tabTrigger>macro</tabTrigger>
+	<tabTrigger>_macro</tabTrigger>
 	<scope>source.c++</scope>
 </snippet>

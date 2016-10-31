@@ -12,7 +12,6 @@ struct Dinic {
   vector<Edge> E;
   vector<vector<int>> g;
   vector<int> d, pt;
-  
   Dinic(int N): N(N), E(0), g(N), d(N), pt(N) {}
 
   void AddEdge(int u, int v, LL cap) {
@@ -41,7 +40,6 @@ struct Dinic {
     }
     return d[T] != N + 1;
   }
-
   LL DFS(int u, int T, LL flow = -1) {
     if (u == T || flow == 0) return flow;
     for (int &i = pt[u]; i < g[u].size(); ++i) {
@@ -59,7 +57,6 @@ struct Dinic {
     }
     return 0;
   }
-
   LL MaxFlow(int S, int T) {
     LL total = 0;
     while (BFS(S, T)) {
@@ -70,7 +67,8 @@ struct Dinic {
     return total;
   }
 };
+
 ]]></content>
-	<tabTrigger>dinic</tabTrigger>
+	<tabTrigger>_dinic</tabTrigger>
 	<scope>source.c++</scope>
 </snippet>

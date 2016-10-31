@@ -6,10 +6,10 @@ bool PointOnLine(PT a, PT b, PT c){
   return sgn(cross(b-a, c-a)) == 0;
 }
 // determine if lines from a to b and c to d are parallel or collinear
-bool LinesParallel(PT a, PT b, PT c, PT d) { 
-  return sgn(cross(b-a, c-d)) == 0; 
+bool LinesParallel(PT a, PT b, PT c, PT d) {
+  return sgn(cross(b-a, c-d)) == 0;
 }
-bool LinesCollinear(PT a, PT b, PT c, PT d) { 
+bool LinesCollinear(PT a, PT b, PT c, PT d) {
   return LinesParallel(a, b, c, d)
       && sgn(cross(a-b, a-c)) == 0
       && sgn(cross(c-d, c-a)) == 0;
@@ -44,7 +44,7 @@ double DistancePointPlane(double x, double y, double z, double a, double b, doub
   return fabs(a*x+b*y+c*z-d)/sqrt(a*a+b*b+c*c);
 }
 
-// determine if line segment from a to b intersects with 
+// determine if line segment from a to b intersects with
 // line segment from c to d
 bool SegmentsIntersect(PT a, PT b, PT c, PT d) {
   if (LinesCollinear(a, b, c, d)) {
@@ -67,7 +67,8 @@ PT ComputeLineIntersection(PT a, PT b, PT c, PT d) {
   assert(dot(b, b) > EPS && dot(d, d) > EPS);
   return a + b*cross(c, d)/cross(b, d);
 }
+
 ]]></content>
-	<tabTrigger>geomline</tabTrigger>
+	<tabTrigger>_geomline</tabTrigger>
 	<scope>source.c++</scope>
 </snippet>

@@ -15,7 +15,7 @@ struct Rat {
    bool operator==(const Rat &f) const { return n * f.d == d * f.n; }
    bool operator> (const Rat &f) const { return n * f.d > d * f.n; }
    bool operator< (const Rat &f) const { return n * f.d < d * f.n; }
-   
+
    Rat& operator= (const LL i) { n = i; d = 1; return *this; }
    Rat operator+ (const LL i) const { return Rat(n + i * f.d, d); }
    Rat operator- (const LL i) const { return Rat(n - i * f.d, d); }
@@ -40,6 +40,6 @@ ostream& operator<< (ostream &os, const Rat &f) { os<<f.n<<'/'<<f.d; }
 istream& operator>> (istream &is, const Rat &f) { is>>f.n>>f.d; } // no '/' required
 
 ]]></content>
-	<tabTrigger>rational</tabTrigger>
+	<tabTrigger>_rational</tabTrigger>
 	<scope>source.c++</scope>
 </snippet>

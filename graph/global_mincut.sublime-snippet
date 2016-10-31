@@ -33,7 +33,8 @@ pair<int, vi> GetMinCut(vvi &weights) {
   }
   return make_pair(best_weight, best_cut);
 }
+
 ]]></content>
-	<tabTrigger>mincut</tabTrigger>
+	<tabTrigger>_mincut</tabTrigger>
 	<scope>source.c++</scope>
 </snippet>

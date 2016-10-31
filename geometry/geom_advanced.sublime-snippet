@@ -97,6 +97,6 @@ bool IsSimple(const vector<PT> &p) {
   return true;
 }
 ]]></content>
-	<tabTrigger>geommore</tabTrigger>
+	<tabTrigger>_geommore</tabTrigger>
 	<scope>source.c++</scope>
 </snippet>

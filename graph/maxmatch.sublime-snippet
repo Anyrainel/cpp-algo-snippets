@@ -38,6 +38,6 @@ struct MaxMatch {
 };
 ${2}
 ]]></content>
-	<tabTrigger>maxmatch</tabTrigger>
+	<tabTrigger>_maxmatch</tabTrigger>
 	<scope>source.c++</scope>
 </snippet>

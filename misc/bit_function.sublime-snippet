@@ -5,8 +5,8 @@
 #define ctz __builtin_ctz // trailing 0
 #define pc __builtin_popcount // number of 1
 // Note: add *ll for long long version
-#define lowb(x) ((x)&(-x)) // lowest bit 
+#define lowb(x) ((x)&(-x)) // lowest bit
 ]]></content>
-	<tabTrigger>bitfunc</tabTrigger>
+	<tabTrigger>_bitfun</tabTrigger>
 	<scope>source.c++</scope>
 </snippet>

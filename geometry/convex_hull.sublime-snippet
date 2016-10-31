@@ -50,6 +50,6 @@ void ConvexHull(vector<PT> &pts) {
 }
 
 ]]></content>
-	<tabTrigger>convexhull</tabTrigger>
+	<tabTrigger>_convexhull</tabTrigger>
 	<scope>source.c++</scope>
 </snippet>

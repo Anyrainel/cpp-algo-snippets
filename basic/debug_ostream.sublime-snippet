@@ -15,7 +15,8 @@ ostream &operator << ( ostream & os, const vector< T > &v ) {
     return os << "]";
 }
 #define deb(x) cerr << #x << " = " << x << endl;
+
 ]]></content>
-	<tabTrigger>dstream</tabTrigger>
+	<tabTrigger>_dstream</tabTrigger>
 	<scope>source.c++</scope>
 </snippet>

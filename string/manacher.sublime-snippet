@@ -29,7 +29,8 @@ vector<int> fastLongestPalindromes(string str) {
     for (i=s; i>e; i--) { d = i-e-1; res.push_back(min(d, res[i])); }
     return res;
 }
+
 ]]></content>
-	<tabTrigger>manacher</tabTrigger>
+	<tabTrigger>_manacher</tabTrigger>
 	<scope>source.c++</scope>
 </snippet>

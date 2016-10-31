@@ -30,6 +30,6 @@ void add_edge(int a, int b) {
 	itb->reverse_edge = ita;
 }
 ]]></content>
-	<tabTrigger>eulerpath</tabTrigger>
+	<tabTrigger>_eulerpath</tabTrigger>
 	<scope>source.c++</scope>
 </snippet>

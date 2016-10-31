@@ -24,6 +24,6 @@ ostream &operator<< (ostream &os, const PT &p) {
 }
 
 ]]></content>
-	<tabTrigger>geompt</tabTrigger>
+	<tabTrigger>_geompt</tabTrigger>
 	<scope>source.c++</scope>
 </snippet>

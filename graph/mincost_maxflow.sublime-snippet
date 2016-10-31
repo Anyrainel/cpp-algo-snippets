@@ -67,6 +67,6 @@ struct MinCostMaxFlow {
 };
 ${2}
 ]]></content>
-	<tabTrigger>costflow</tabTrigger>
+	<tabTrigger>_costflow</tabTrigger>
 	<scope>source.c++</scope>
 </snippet>
