@@ -8,7 +8,7 @@ This repo contains data structures, algorithms and simple code snippets that cou
 
 Clone or download this repo, then place the folder in your user's `Packages/` (open it in *Preferences > Browse Packages...*). Then you can insert a snippet with a `_` (underscore) following a trigger named below.
 
-**Optional**: remove the shipped default c++ snippets. They are useless in most cases. You can find it at `\<installation folder\>/Packages/C++.sublime-package`. It is a .zip file. Unzip, remove or move `Snippets/`, then zip back.
+**Optional**: remove the shipped default c++ snippets. They are useless in most cases. You can find it at `<installation folder>/Packages/C++.sublime-package`. It is a .zip file. Unzip, remove or move `Snippets/`, then zip back.
 
 Note that you can choose to use "tab" to insert snippet (default is "enter") by adding `"auto_complete_commit_on_tab": true` to your settings.
 
@@ -52,22 +52,24 @@ Reference list of snippets and their triggers:
 	- `bigint`: struct `bigint` for high precision arithmetic (*bigint*)
 	- `orderedset`: declaration of `ordered_set` using pb\_ds (*ordered_set*)
 
-Note that many snippets rely on some basic typdef or basic snippets, but they are very easy to understand with compiler message. There are certainly more algorithms worth adding. I will continue to finish it. I believe now it could serve as a decent helper already.
+Note that many snippets rely on some basic typdef or basic snippets (especially `include` for all and `geompt` for geometry), but they are very easy to understand with compiler message. There are certainly more algorithms worth adding. I will continue to finish it. I believe now it could serve as a decent helper already.
 
 ### More words
 
-The idea of embedding codes into snippets comes to me while I was configuring my sublime for competitive programming. This way I think we can save time and focus more on the thoughts in our minds. It may not neccessarily boost your rank, but it is cool! Just imagine the beautiful pieces of code magically show on the screen and helped you indeed. All you have to do is making several keystrokes.
+The idea of embedding codes into snippets comes to me while I was configuring my sublime for competitive programming. This way I think we can save time and focus more on the thoughts in our minds. Just imagine the beautiful pieces of code magically appeared on the screen and helped you indeed. All you have to do is making several keystrokes. It may not neccessarily boost your rank, but it is cool! 
 
-The initiative behind is more personal. I prefer some tricks to boost the workflow while coding for problems, as long as the things introduced are not too difficult to remember. I prefer shorter names and slimmer (but consistent) codes. Also, I would like to adopt some macros that could make a decent (positive) difference comparing to pure C++. I'm a collector of awesome stuffs!
+The initiative behind is more personal. I prefer some tricks to boost the workflow while coding for problems, as long as the things introduced are not too difficult to remember. I prefer shorter names and slimmer codes with readability. Also, I would like to adopt some macros that could make a decent (positive) difference comparing to pure C++. I'm a collector of awesome stuffs!
+
+I have just finished a very first version of this idea. Things still need to be thoroughly tested.
 
 The style I used in the snippets are somewhat "mixed". The reason of having such patterns is that they should be:
 
 - short, not demanding time to scroll
 - fit for half screen's width (for desktops)
 - correct, efficient and trustful
-- clear and readable, convenient to check any parameter or protocol
+- clear and semantic, convenient to check any parameter or protocol
 - easy to use, not likely to break the rest code's robustness and readability
-- forgettable, not likely to distract us from implementing our thoughts
+- forgettable, not likely to distract focus from coding or thinking
 
 It is impossible to have a single style that could be the best for every problem. I believe this will also change as I gain more experience.
 
@@ -75,8 +77,8 @@ BTW, there is an awesome plugin for sublime called "Sublime Input", which is als
 
 ### TODO
 
-- [] Find a better way to trigger completion. Ideally I want to use `'@'`, but it is not a trivial work unless I write a script for this pluggin.
-- [] Add more algorithms and data structures. However, I might wait until I see the usefulness and a good implementation.
+- [ ] Find a better way to trigger completion. Ideally I want to use `'@'`, but it is not a trivial work unless I write a script for this plugin.
+- [ ] Add more algorithms and data structures. However, I might wait until I see the usefulness and a good implementation.
 	- shortest path
 	- minimum spanning tree
 	- balanced trees
