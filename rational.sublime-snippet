@@ -1,0 +1,45 @@
+<snippet>
+	<content><![CDATA[
+struct Rat {
+   LL n, d; // fraction n/d. default value: 0/1
+   Rat(LL nn = 0LL, LL dd = 1LL): n(nn), d(dd) {
+      reduce(); // remove this and manually call reduce() to boost run time
+   }
+   Rat(const Rat &f): n(f.n), d(f.d) {}
+
+   Rat& operator= (const Rat &f) { n = f.n; d = f.d; return *this; }
+   Rat operator+ (const Rat &f) const { return Rat(n * f.d + f.n * d, d * f.d); }
+   Rat operator- (const Rat &f) const { return Rat(n * f.d - f.n * d, d * f.d); }
+   Rat operator* (const Rat &f) const { return Rat(n * f.n, d * f.d); }
+   Rat operator/ (const Rat &f) const { return Rat(n * f.d, d * f.n); }
+   bool operator==(const Rat &f) const { return n * f.d == d * f.n; }
+   bool operator> (const Rat &f) const { return n * f.d > d * f.n; }
+   bool operator< (const Rat &f) const { return n * f.d < d * f.n; }
+   
+   Rat& operator= (const LL i) { n = i; d = 1; return *this; }
+   Rat operator+ (const LL i) const { return Rat(n + i * f.d, d); }
+   Rat operator- (const LL i) const { return Rat(n - i * f.d, d); }
+   Rat operator* (const LL i) const { return Rat(n * i, d); }
+   Rat operator/ (const LL i) const { return Rat(n, d * i); }
+   bool operator==(const LL i) const { return n == i * d; }
+   bool operator> (const LL i) const { return n > i * d; }
+   bool operator< (const LL i) const { return n < i * d; }
+
+   operator double() { return (double)n / (double)d; }
+   void reduce() {
+      if(!d) { if(n) n = 1LL; return; }
+      if(!n) { d = 1LL; return; }
+      if(d < 0LL) { n = -n; d = -d; }
+      LL a = n < 0LL ? -n : n, b = d, t;
+      while(b) { t = b; b = a % b; a = t; }
+      n /= a; d /= a; // a is gcd(n, d)
+   };
+};
+
+ostream& operator<< (ostream &os, const Rat &f) { os<<f.n<<'/'<<f.d; }
+istream& operator>> (istream &is, const Rat &f) { is>>f.n>>f.d; } // no '/' required
+
+]]></content>
+	<tabTrigger>rational</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

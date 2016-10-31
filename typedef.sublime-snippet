@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+typedef vector<vi> vvi;
+typedef vector<LL> vll;
+typedef vector<string> vs;
+typedef vector<ii> vii;
+typedef unordered_map<string, int> MSI;
+]]></content>
+	<tabTrigger>deftype</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

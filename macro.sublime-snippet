@@ -1,0 +1,15 @@
+<snippet>
+	<content><![CDATA[
+#define pb push_back
+#define ff first
+#define ss second
+#define all(c) (c).begin(), (c).end()
+#define sz(x) ((int)x.size())
+#define maxify(m, x) {if((m) < (x)) m = (x);}
+#define minify(m, x) {if((m) > (x)) m = (x);}
+#define fixprec(d) {cout<<fixed<<setprecision(d);}
+#define setfw(f,w) {cout<<setfill(f)<<setw(w);}
+]]></content>
+	<tabTrigger>macro</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

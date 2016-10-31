@@ -1,0 +1,18 @@
+<snippet>
+	<content><![CDATA[
+// rotate a point CCW or CW around the origin
+PT RotateCCW90(PT p)   { return PT(-p.y,p.x); }
+PT RotateCW90(PT p)    { return PT(p.y,-p.x); }
+PT RotateCCW(PT p, double t) { 
+  return PT(p.x*cos(t)-p.y*sin(t), p.x*sin(t)+p.y*cos(t)); 
+}
+double angle(PT p, PT q){
+  double cr = cross(p,q), dt = dot(p,q);
+  if (!sgn(cr)) cr = 0;
+  if (!sgn(dt)) dt = 0;
+  return atan2(cr, dt);
+}
+]]></content>
+	<tabTrigger>geomrotate</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

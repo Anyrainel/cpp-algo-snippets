@@ -1,0 +1,66 @@
+<snippet>
+	<content><![CDATA[
+const int N = ${1:1000};
+struct MaxWeightMatch {
+  int n, m;
+  int labelx[N], labely[N], match[N], slack[N];
+  int graph[N][N];
+  bool visitx[N], visity[N];
+  MaxWeightMatch(int n, int m): n(n), m(m) {
+    memset(graph, 0, sizeof(graph));
+    fill(match, match + n, -1);
+    fill(labelx, labelx + n, INT_MIN);
+    fill(labely, labely + m, 0);
+  }
+
+  void add(int x, int y, int w) { graph[x][y] = w; }
+
+  bool dfs(int x) {
+    visitx[x] = true;
+    for (int y = 0; y < m; ++y) {
+      if (visity[y]) continue;
+      int delta = labelx[x] + labely[y] - graph[x][y];
+      if (delta == 0) {
+        visity[y] = true;
+        if (match[y] == -1 || dfs(match[y])) {
+          match[y] = x;
+          return true;
+        }
+      }
+      else slack[y] = std::min(slack[y], delta);
+    }
+    return false;
+  }
+  
+  int maxMatch() {
+    for(int i = 0; i < n; ++i)
+      for(int j = 0; j < m; ++j)
+        if(labelx[i] < graph[i][j]) labelx[i] = graph[i][j];
+    for(int i = 0; i < n; ++i) while (true) {
+      fill(visitx, visitx + n, 0);
+      fill(visity, visity + m, 0);
+      fill(slack, slack + m, INT_MAX);
+      if(dfs(i)) break;
+      int delta = INT_MAX;
+      for(int j = 0; j < m; ++j)
+        if(!visity[j] && delta > slack[j])
+          delta = slack[j];
+      for(int j = 0; j < n; ++j)
+        if(visitx[j]) labelx[j] -= delta;
+      for(int j = 0; j < m; ++j) {
+        if(visity[j]) labely[j] += delta;
+        else slack[j] -= delta;
+      }
+    }
+    int ans = 0;
+    for(int i = 0; i < n; ++i) {
+      ans += graph[match[i]][i];
+    }
+    return ans;
+  }
+};
+${2}
+]]></content>
+	<tabTrigger>weightmatch</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

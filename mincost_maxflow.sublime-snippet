@@ -1,0 +1,72 @@
+<snippet>
+	<content><![CDATA[
+const int N = ${1:1000};
+struct MinCostMaxFlow {
+  const LL INF = numeric_limits<LL>::max() / 4;
+  int n, found[N];
+  LL cap[N][N], flow[N][N], cost[N][N];
+  LL dist[N], pi[N], width[N];
+  ii dad[N];
+  MinCostMaxFlow(int n) : n(n) {
+    memset(cap, 0, sizeof(cap));
+    memset(flow, 0, sizeof(flow));
+    memset(cost, 0, sizeof(cost));
+    fill(dist, dist + n, 0LL);
+    fill(pi, pi + n, 0LL);
+    fill(width, width + n, 0LL);
+  }
+
+  void addEdge(int from, int to, LL cap, LL cost) {
+    this->cap[from][to] = cap;
+    this->cost[from][to] = cost;
+  }
+  void Relax(int s, int k, LL cap, LL cost, int dir) {
+    LL val = dist[s] + pi[s] - pi[k] + cost;
+    if (cap && val < dist[k]) {
+      dist[k] = val;
+      dad[k] = make_pair(s, dir);
+      width[k] = min(cap, width[s]);
+    }
+  }
+  LL Dijkstra(int s, int t) {
+    fill(found, found + n, false);
+    fill(dist, dist + n, INF);
+    fill(width, width + n, 0);
+    dist[s] = 0;
+    width[s] = INF;
+    while (s != -1) {
+      int best = -1;
+      found[s] = true;
+      for (int k = 0; k < n; k++) {
+        if (found[k]) continue;
+        Relax(s, k, cap[s][k] - flow[s][k], cost[s][k], 1);
+        Relax(s, k, flow[k][s], -cost[k][s], -1);
+        if (best == -1 || dist[k] < dist[best]) best = k;
+      }
+      s = best;
+    }
+    for (int k = 0; k < n; k++) pi[k] = min(pi[k] + dist[k], INF);
+    return width[t];
+  }
+  pair<LL, LL> maxFlowCost(int s, int t) {
+    LL totflow = 0, totcost = 0;
+    while (LL amt = Dijkstra(s, t)) {
+      totflow += amt;
+      for (int x = t; x != s; x = dad[x].first) {
+        if (dad[x].second == 1) {
+          flow[dad[x].first][x] += amt;
+          totcost += amt * cost[dad[x].first][x];
+        } else {
+          flow[x][dad[x].first] -= amt;
+          totcost -= amt * cost[x][dad[x].first];
+        }
+      }
+    }
+    return make_pair(totflow, totcost);
+  }
+};
+${2}
+]]></content>
+	<tabTrigger>costflow</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

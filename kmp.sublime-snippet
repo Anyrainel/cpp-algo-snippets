@@ -1,0 +1,29 @@
+<snippet>
+	<content><![CDATA[
+// Returns the 0-based index of the first match (length if no match is found)
+int KMP(string& s, string& w) {
+  int m = 0, i = 2, j = 0;
+  vi t(w.length());
+  t[0] = -1; t[1] = 0;
+  while(i < w.length()) {
+    if(w[i-1] == w[j]) { t[i] = j+1; i++; j++; }
+    else if(j > 0) j = t[j];
+    else { t[i] = 0; i++; }
+  }
+  i = 0;
+  while(m+i < s.length()) {
+    if(w[i] == s[m+i]) {
+      i++;
+      if(i == w.length()) return m;
+    }
+    else {
+      m += i-t[i];
+      if(i > 0) i = t[i];
+    }
+  }  
+  return s.length();
+}
+]]></content>
+	<tabTrigger>kmp</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

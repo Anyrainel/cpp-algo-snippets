@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[
+int main()
+{
+	ios_base::sync_with_stdio(false);
+	${1}
+	return 0;
+}
+]]></content>
+	<tabTrigger>main</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

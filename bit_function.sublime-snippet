@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[
+#define ffs __builtin_ffs // least significant bit, 1 based
+#define clz __builtin_clz // leading 0
+#define ctz __builtin_ctz // trailing 0
+#define pc __builtin_popcount // number of 1
+// Note: add *ll for long long version
+#define lowb(x) ((x)&(-x)) // lowest bit 
+]]></content>
+	<tabTrigger>bitfunc</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

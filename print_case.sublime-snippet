@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+int kase = 0;
+while(${1:true}){
+	${2}
+	cout<<"Case "<<++kase<<": ";
+}
+]]></content>
+	<tabTrigger>kase</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>
