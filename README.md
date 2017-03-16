@@ -19,7 +19,7 @@ Reference list of snippets and their triggers:
 > Format **`_<trigger>`**: \<content\> (*\<filename\>.sublime-snippet*)
 
 1. Basic
-	- `include`: header, namespace std, very commen macros & typedefs (*head*)
+	- `include`: header, namespace std, very common macros & typedefs (*head*)
 	- `macro`: more useful macros (*macro*)
 	- `deftype`: typedefs of STL for shorter names (*typedef*)
 	- `main`: main function with `sync_with_stdio` disabled (*main*)
