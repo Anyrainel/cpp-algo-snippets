@@ -1,10 +1,11 @@
 <snippet>
 	<content><![CDATA[
-int kase = 0;
-while(${1:true}){
+int kase = 0, Tc;
+cin >> Tc;
+while(kase < Tc){
 	$0
-	cout<<"Case "<<++kase<<": ";
-	
+	cout<<"Case ${1:#}"<<++kase<<": ";
+    
 }
 ]]></content>
 	<tabTrigger>_kase</tabTrigger>
